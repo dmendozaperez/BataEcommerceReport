@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Bata Report App</title>
+
+    @Styles.Render("~/Scripts/vendors/bootstrap/dist/css/bootstrap.min.css")
+    @Styles.Render("~/Scripts/vendors/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/Content/custom.css")
+    </head>
+    <body style="background:#F7F7F7;">
+        <div class="">
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="wrapper">
+                <div id="login" class="form">
+                    <div style="text-align:center;">
+                        <img src="@Url.Content("~/Images/bata-report-app.png")" alt="Bata Report App" width="400px" height="400px">
+                    </div>
+                    <section class="login_content">
+                        <form>
+                            <h1>Iniciar Sesión</h1>
+                            <div>
+                                <input name="txtUsuario" type="text" class="form-control" placeholder="Usuario" required="" />
+                            </div>
+                            <div>
+                                <input name="txtPassword" type="password" class="form-control" placeholder="Contraseña" required="" />
+                            </div>
+                            <div>
+                                <a class="btn btn-default submit" href="#">Ingresar</a>
+                                <a class="reset_pass" href="#">¿Recordar contraseña?</a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="separator">
+                                <div class="clearfix"></div>
+                                <br />
+                                <div>
+                                    <h1><img src="@Url.Content("~/Images/bata-46x46.png")" width=46 height=46 alt="Bata Perú">&nbsp;&nbsp; Report App vr.0.0.1</h1>
+                                    <p>Área de Sistemas - Bata Perú - &copy; @DateTime.Now.Year</p>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

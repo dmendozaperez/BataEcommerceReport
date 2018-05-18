@@ -1,0 +1,10 @@
+﻿@using Microsoft.Reporting.WebForms;
+@using ReportViewerForMvc;
+
+<h2>Reporte de Pedidos de Ecommerce</h2>
+<span>Lista los Pedidos Importados del Carrito de Compras.</span>
+<br />
+@if (ViewBag.ReportViewer != null)
+{
+    <div style="width: 100%; height: 100%;">@Html.ReportViewer(ViewBag.ReportViewer as ReportViewer)</div>
+}

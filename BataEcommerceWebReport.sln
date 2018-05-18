@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BataEcommerceWebReport", "BataEcommerceWebReport\BataEcommerceWebReport.csproj", "{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "BataEcommerce.R", "BataEcommerce.R\BataEcommerce.R.rptproj", "{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1912C4-A985-4EDA-BE66-AC80E4A1FDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.Debug|Any CPU.ActiveCfg = Debug
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.Debug|Any CPU.Build.0 = Debug
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.Debug|Any CPU.Deploy.0 = Debug
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.Release|Any CPU.ActiveCfg = Release
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.Release|Any CPU.Build.0 = Release
+		{52E9A6E5-30CF-418B-974B-8FA395AB0EAD}.Release|Any CPU.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

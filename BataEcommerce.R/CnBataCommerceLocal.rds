@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CnBataCommerceLocal">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=OSISTE13\SQLSERVER2017;Initial Catalog=BD_ECOMMERCE;Persist Security Info=True;User ID=sa;Password="123456"</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>ba50e775-e0ca-4351-9c24-80dbe92db957</DataSourceID>
+</RptDataSource>

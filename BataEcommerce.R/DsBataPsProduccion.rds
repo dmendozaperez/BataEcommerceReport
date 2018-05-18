@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DsBataPsProduccion">
+  <ConnectionProperties>
+    <Extension>ODBC</Extension>
+    <ConnectString>Dsn=Ps Bata Produccion</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>3926dafa-5f35-4cf7-b976-70a5057b0848</DataSourceID>
+</RptDataSource>

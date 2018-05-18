@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Bata Report App</title>
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/Images/bata-favicon.png")" />
+    @Styles.Render("~/Scripts/vendors/bootstrap/dist/css/bootstrap.min.css")
+    @Styles.Render("~/Scripts/vendors/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/Content/custom.css")
+</head>
+<body class="nav-md">
+    <div class="container body">        
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><img src="@Url.Content("~/Images/bata-46x46.png")" width=46 height=46 alt="Bata Perú"> <span>Bata Perú</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+                <img src="@Url.Content("~/Images/user-it.png")" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido,</span>
+                <h2>Área de Sistemas</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+            <br />
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a href="@Url.Action("Panel", "Home")"><i class="fa fa-home"></i>Inicio</a></li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>@Html.ActionLink("Pedidos Ecommerce", "ReporteVentas", "Home")</li>
+                      <li>@Html.ActionLink("Pedidos Caídos", "ReportePedido", "Home")</li>
+                      <li>@Html.ActionLink("Stocks Productos", "ReporteStocks", "Home")</li>
+                      <li>@Html.ActionLink("Ranking Productos", "ReporteRanking", "Home")</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+
+          <div class="nav_menu">
+            <nav class="" role="navigation">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+            </nav>
+          </div>
+
+        </div>
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            @RenderBody()
+        </div>
+        <!-- /page content -->
+          
+        <!-- footer content -->
+        <footer>
+          <div class="pull-left">Área de Sistemas - Bata Perú - &copy; @DateTime.Now.Year</div>
+          <div class="pull-right">Bata Report App vr.0.0.1</div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    @Scripts.Render("~/Scripts/vendors/jquery/dist/jquery.min.js")
+    @Scripts.Render("~/Scripts/vendors/bootstrap/dist/js/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/vendors/fastclick/lib/fastclick.js")
+    @Scripts.Render("~/Scripts/custom.js")
+    @RenderSection("scripts", required: false)
+
+  </body>
+</html>

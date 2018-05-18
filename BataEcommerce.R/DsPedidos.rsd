@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>CnBataCommerceTeleProd</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@Param_Cliente">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+        <DataSetParameter Name="@Param_FechaDesde">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+          <rd:DbType>Double</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@Param_FechaHasta">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+          <rd:DbType>DateTime</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@Param_Estado">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>select
+	l.Liq_Id,
+	convert(varchar, l.Liq_FechaIng, 103) AS 'Liq_FechaIng',
+	b.Bas_Primer_Nombre + ' ' + b.Bas_Primer_Apellido as Bas_Nombres,
+    Bas_Documento,
+	l.Liq_Tot_CIgv - l.Liq_Igv as Subtotal,
+	l.Liq_Igv,
+	l.Liq_Tot_CIgv
+from Liquidacion l
+left join Basico_Dato b on b.Bas_Id = l.Liq_BasId
+where l.Liq_Pst_Ref is not null and rtrim(ltrim(l.Liq_Pst_Ref)) &lt;&gt; ''
+	and ( @Param_Cliente = '' or @Param_Cliente is null or b.Bas_Primer_Nombre like concat('%', @Param_Cliente ,'%')
+	  or b.Bas_Segundo_Nombre like  concat('%', @Param_Cliente ,'%') or b.Bas_Primer_Apellido like  concat('%', @Param_Cliente ,'%')
+	  or b.Bas_Segundo_Apellido like  concat('%', @Param_Cliente ,'%'))
+    and ( @Param_Estado = '' or @Param_Estado is null or l.Liq_EstId = @Param_Estado)
+	and ( @Param_FechaDesde = '' or @Param_FechaDesde is null or convert(date, Liq_FechaIng) &gt;= convert(date,@Param_FechaDesde))
+	and ( @Param_FechaHasta = '' or @Param_FechaHasta is null or convert(date, Liq_FechaIng) &lt;= convert(date,@Param_FechaHasta));</CommandText>
+      <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+    </Query>
+    <Fields>
+      <Field Name="Liq_Id">
+        <DataField>Liq_Id</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Liq_FechaIng">
+        <DataField>Liq_FechaIng</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Bas_Nombres">
+        <DataField>Bas_Nombres</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Bas_Documento">
+        <DataField>Bas_Documento</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Subtotal">
+        <DataField>Subtotal</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Liq_Igv">
+        <DataField>Liq_Igv</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Liq_Tot_CIgv">
+        <DataField>Liq_Tot_CIgv</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

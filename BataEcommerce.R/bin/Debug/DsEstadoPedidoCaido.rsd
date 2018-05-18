@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DsBataPsProduccion</DataSourceReference>
+      <CommandText>SELECT '' AS 'Id', '--Seleccione--' AS 'Nombre'
+UNION
+SELECT s.id_order_state AS 'Id', l.name AS 'Nombre' FROM ps_order_state s
+LEFT JOIN ps_order_state_lang l ON l.id_order_state = s.id_order_state
+WHERE id_lang = 1 AND s.id_order_state NOT IN (2,18) ORDER BY Nombre ASC;</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Id">
+        <DataField>Id</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Nombre">
+        <DataField>Nombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

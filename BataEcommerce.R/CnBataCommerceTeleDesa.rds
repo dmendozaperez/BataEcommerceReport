@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CnBataCommerceTeleDesa">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=ecommerce.bgr.pe;Initial Catalog=BD_ECOMMERCE;Persist Security Info=True;User ID=ecommerce;Password="Bata2018.*@=?++"</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>6bc6da83-00a4-462c-b25f-8afff37f2d83</DataSourceID>
+</RptDataSource>

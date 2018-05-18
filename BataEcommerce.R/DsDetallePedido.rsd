@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>CnBataCommerceTeleProd</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@LiquidacionId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>	select
+		ld.Liq_Det_ArtId,
+		CASE
+			WHEN ld.Liq_Det_TalId = '00' THEN ''
+			ELSE ld.Liq_Det_TalId
+		END AS 'Liq_Det_TalId',
+		CASE
+			WHEN ld.Liq_Det_ArtId = '9999997' AND ld.Liq_Det_ArtDes IS NULL THEN 'Transporte Urbano'
+			ELSE ld.Liq_Det_ArtDes
+		END AS 'Liq_Det_ArtDes',
+		cp.Cat_Pri_Descripcion,
+		ld.Liq_det_Cantidad,
+		(ld.Liq_Det_Precio - ld.Liq_Det_Comision) AS Liq_Det_Precio
+	from Liquidacion_Detalle ld
+	left join Articulo a on a.Art_Id = ld.Liq_Det_ArtId
+	left join Categoria_Principal cp on cp.Cat_Pri_Id = a.Art_Cat_PriId
+	where Liq_Det_Id = @LiquidacionId
+	order by Liq_Det_Items asc;</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Liq_Det_ArtId">
+        <DataField>Liq_Det_ArtId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Liq_Det_TalId">
+        <DataField>Liq_Det_TalId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Liq_Det_ArtDes">
+        <DataField>Liq_Det_ArtDes</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Cat_Pri_Descripcion">
+        <DataField>Cat_Pri_Descripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Liq_det_Cantidad">
+        <DataField>Liq_det_Cantidad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Liq_Det_Precio">
+        <DataField>Liq_Det_Precio</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
